@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "vercel-build": "npm pack && next build",
+    "start": "NODE_ENV=production node ./_app"
   },
   "dependencies": {
     "firebase": "^8.9.0",

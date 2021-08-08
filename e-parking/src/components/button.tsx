@@ -17,7 +17,7 @@ const Button = (props: ButtonProps) => {
       className={`
         bg-${color}-600
         text-white rounded-md px-5 py-2 ${props.className}
-        hover:bg-${color}-700
+        hover:bg-${color}-800
         active:bg-${color}-600
         `}
     >

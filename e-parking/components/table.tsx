@@ -64,7 +64,7 @@ const Table = (props: TableProps) => {
           key={car.id}
           className={`${
             index % 2 === 0 ? "bg-blue-200" : "bg-blue-100"
-          } text-gray-800`}
+          } text-gray-800 font-light`}
         >
           <td className="text-left p-4">{car.id}</td>
           <td className="text-left p-4">{car.plate}</td>

@@ -15,9 +15,9 @@ const Layout = (props: LayoutProps) => {
             flex-col
             w-2/3 
             m-5
-            bg-gray-300
+            bg-gray-100
             text-white
-            bg-opacity-10
+            bg-opacity-100
             rounded-3xl 
             rounded-tl-sm
             rounded-br-sm

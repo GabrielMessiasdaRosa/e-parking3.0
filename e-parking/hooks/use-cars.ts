@@ -5,7 +5,7 @@ import CarCollection from "../firebase/db/car-colection";
 
 export default function useCars() {
   const repository: CarRepository = new CarCollection();
-
+  
   const [visible, setVisible] = React.useState("table");
   const [car, setCar] = React.useState<Car>(Car.emptyCar());
   const [cars, setCars] = React.useState<Car[]>([]);

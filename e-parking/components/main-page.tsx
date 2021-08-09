@@ -44,7 +44,7 @@ export default function MainPage() {
               cars={cars}
               selectCar={selectCar}
               deleteCar={deleteCar}
-            ></Table>
+            />
           </>
         ) : (
           <>
@@ -53,7 +53,7 @@ export default function MainPage() {
                 onChangeCar={saveCar}
                 cancel={() => setVisible("table")}
                 car={car}
-              ></Form>
+              />
             </div>
           </>
         )}

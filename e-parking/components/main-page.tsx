@@ -4,6 +4,7 @@ import Form from "./form";
 import Layout from "./layout";
 import Table from "./table";
 import useCars from "../hooks/use-cars";
+import Select from "./select";
 export default function MainPage() {
   const {
     selectCar,
@@ -35,16 +36,15 @@ export default function MainPage() {
       >
         {visible === "table" ? (
           <>
-            <div className={`flex justify-end mb-6 mt-1`}>
-              <Button onClick={() => newCar()} color="blue">
-                New Car
-              </Button>
+            <div className="flex flex-row">
+              <Select cars={cars} className="w-1/3" text="Select a car"></Select>
+              <div className={`flex  justify-end w-full  mb-6 mt-1`}>
+                <Button onClick={() => newCar()} color="blue">
+                  New Car
+                </Button>
+              </div>
             </div>
-            <Table
-              cars={cars}
-              selectCar={selectCar}
-              deleteCar={deleteCar}
-            />
+            <Table cars={cars} selectCar={selectCar} deleteCar={deleteCar} />
           </>
         ) : (
           <>

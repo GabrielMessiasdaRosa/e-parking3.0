@@ -1,5 +1,6 @@
 import React from "react";
 import Car from "../core/car";
+import useCarProps from "../hooks/use-car-props";
 import Button from "./button";
 import Input from "./input";
 interface FormProps {
@@ -9,10 +10,15 @@ interface FormProps {
 }
 
 const Form = (props: FormProps) => {
-  const [name, setName] = React.useState(props.car?.name ?? "");
-  const id = props.car?.id;
-  const [color, setColor] = React.useState(props.car?.color);
-  const [plate, setPlate] = React.useState(props.car?.plate);
+  const {
+    id,
+    name,
+    setName,
+    color,
+    setColor,
+    plate,
+    setPlate,
+  }= useCarProps(props);
 
   return (
     <div className={`text-black`}>

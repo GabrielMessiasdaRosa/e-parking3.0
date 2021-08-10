@@ -1,3 +1,4 @@
+import { chakra } from "@chakra-ui/react";
 import React, { Component } from "react";
 import Car from "../core/car";
 import { editIcon, trashIcon } from "./icons";
@@ -10,77 +11,94 @@ interface TableProps {
 const Table = (props: TableProps) => {
   const renderHeader = () => {
     return (
-      <tr>
-        <th className="text-left p-4">ID</th>
-        <th className="text-left p-4">Plate</th>
-        <th className="text-left p-4">Name</th>
-        <th className="text-left p-4">Color</th>
-        <th className="text-center p-4">Actions</th>
-      </tr>
+      <chakra.tr>
+        <chakra.th textAlign="left" padding="4">
+          ID
+        </chakra.th>
+        <chakra.th textAlign="left" padding="4">
+          Plate
+        </chakra.th>
+        <chakra.th textAlign="left" padding="4">
+          Name
+        </chakra.th>
+        <chakra.th textAlign="left" padding="4">
+          Color
+        </chakra.th>
+        <chakra.th textAlign="center" padding="4">
+          Actions
+        </chakra.th>
+      </chakra.tr>
     );
   };
   const showActions = props.deleteCar || props.selectCar;
   const renderActions = (car: Car) => {
     return (
-      <td className="flex p-4 justify-center ">
-        <button
+      <chakra.td diaplay="flex" padding="4" textAlign="center">
+        <chakra.button
           onClick={() => props.selectCar?.(car)}
-          className={` 
-            justify-center 
-            items-center 
-            ml-2
-            p-2
-            rounded-full
-            hover:bg-blue-400
-            hover:text-blue-200
-            text-blue-600
-          `}
+          justifyItems="center"
+          alignItems="center"
+          marginLeft="3"
+          padding="2"
+          rounded="full"
+          color="blue.700"
+          _hover={{
+            bgColor: `blue.400`,
+            color: "blue.100",
+          }}
         >
           {editIcon}
-        </button> 
-        <button
+        </chakra.button>
+        <chakra.button
           onClick={() => props.deleteCar?.(car)}
-          className={` 
-           justify-center
-           items-center
-           ml-2
-           p-2
-           rounded-full
-           text-red-500
-           hover:bg-red-300
-           hover:text-red-800
-          
-          `}
+          justifyItems="center"
+          alignItems="center"
+          marginLeft="3"
+          padding="2"
+          rounded="full"
+          color="red.600"
+          _hover={{
+            bgColor: `red.400`,
+            color: "red.100",
+          }}
         >
           {trashIcon}
-        </button>
-      </td>
+        </chakra.button>
+      </chakra.td>
     );
   };
   const renderData = () => {
     return props.cars?.map((car, index) => {
       return (
-        <tr
+        <chakra.tr
           key={car.id}
           className={`${
             index % 2 === 0 ? "bg-blue-200" : "bg-blue-100"
           } text-gray-800 font-light`}
         >
-          <td className="text-left p-4">{car.id}</td>
-          <td className="text-left p-4">{car.plate}</td>
-          <td className="text-left p-4">{car.name}</td>
-          <td className="text-left p-4">{car.color}</td>
+          <chakra.td textAlign="left" padding="4">
+            {car.id}
+          </chakra.td>
+          <chakra.td textAlign="left" padding="4">
+            {car.plate}
+          </chakra.td>
+          <chakra.td textAlign="left" padding="4">
+            {car.name}
+          </chakra.td>
+          <chakra.td textAlign="left" padding="4">
+            {car.color}
+          </chakra.td>
           {showActions ? renderActions(car) : false}
-        </tr>
+        </chakra.tr>
       );
     });
   };
 
   return (
-    <table className={`w-full rounded-xl overflow-hidden`}>
-      <thead className={`text-gray-200 bg-blue-500`}>{renderHeader()}</thead>
-      <tbody>{renderData()}</tbody>
-    </table>
+    <chakra.table width="full" rounded="xl" overflow="hidden">
+      <chakra.thead backgroundColor="blue.700">{renderHeader()}</chakra.thead>
+      <chakra.tbody>{renderData()}</chakra.tbody>
+    </chakra.table>
   );
 };
 export default Table;

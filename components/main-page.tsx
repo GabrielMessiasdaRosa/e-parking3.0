@@ -5,6 +5,7 @@ import Layout from "./layout";
 import Table from "./table";
 import useCars from "../hooks/use-cars";
 import Select from "./select";
+import { Flex } from "@chakra-ui/react";
 export default function MainPage() {
   const {
     selectCar,
@@ -18,12 +19,13 @@ export default function MainPage() {
   } = useCars();
 
   return (
-    <div
-      className={`
-    flex h-screen justify-center items-center 
-    bg-gradient-to-l from-blue-800 via-blue-700 to-blue-500
-    text-white
-    `}
+    <Flex
+      display="flex"
+      height="100vh"
+      alignItems="center"
+      justify="center"
+      bgGradient="linear(to-l, #4E67C0, #0093E9)"
+      color="#303030"
     >
       <Layout
         title={
@@ -36,28 +38,28 @@ export default function MainPage() {
       >
         {visible === "table" ? (
           <>
-            <div className="flex flex-row">
-              <Select cars={cars} className="w-1/3" text="Select a car"></Select>
-              <div className={`flex  justify-end w-full  mb-6 mt-1`}>
+            <Flex>
+              <Select cars={cars} text="Select a car"></Select>
+              <Flex display="grid" justify="end" width="full" maxHeight="14">
                 <Button onClick={() => newCar()} color="blue">
                   New Car
                 </Button>
-              </div>
-            </div>
+              </Flex>
+            </Flex>
             <Table cars={cars} selectCar={selectCar} deleteCar={deleteCar} />
           </>
         ) : (
           <>
-            <div className={`flex justify-center px-5`}>
+            <Flex justify="center">
               <Form
                 onChangeCar={saveCar}
                 cancel={() => setVisible("table")}
                 car={car}
               />
-            </div>
+            </Flex>
           </>
         )}
       </Layout>
-    </div>
+    </Flex>
   );
 }

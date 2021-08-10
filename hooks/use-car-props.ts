@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export default function useCarProps(props) {
   const [name, setName] = React.useState(props.car?.name ?? "");

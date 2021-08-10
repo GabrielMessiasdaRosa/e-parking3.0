@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Title from "./title";
+import { Flex } from "@chakra-ui/react";
 
 interface LayoutProps {
   title?: string;
@@ -9,44 +9,22 @@ interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
   return (
-    <div
-      className={`
-            flex
-            flex-col
-            w-2/3 
-            m-5
-            bg-gray-100
-            text-white
-            bg-opacity-100
-            rounded-3xl 
-            rounded-tl-sm
-            rounded-br-sm
-        `}
+    <Flex
+      display="column"
+      width="65%"
+      bg="#b4b4b43f"
+      textColor="white"
+      rounded="sm"
+      roundedTopEnd="3xl"
+      roundedBottomLeft="3xl"
     >
-      <div
-        className={`
-        flex
-        flex-row
-        rounded-xl 
-        m-5
-        bg-gradient-to-r
-        from-indigo-800
-        via-indigo-700
-        to-indigo-600
-      `}
-      >
+      <Flex rounded="xl" bgGradient="linear(to-l, #4E67C0, #0093E9)" margin="5">
         <Title>{props.title}</Title>
-      </div>
-      <div className={`
-      pb-5
-      ml-5
-      mr-5
-      rounded-sm
-      rounded-bl-xl
-      `}>
+      </Flex>
+      <Flex display="row" pb={5} ml={5} mr={5}>
         {props.children}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 export default Layout;

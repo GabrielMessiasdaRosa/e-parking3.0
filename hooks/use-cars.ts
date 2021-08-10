@@ -15,6 +15,7 @@ export default function useCars() {
       setCars(cars), setVisible("table");
     });
   };
+  
   React.useEffect(getAllCars, []);
 
   const selectCar = (car: Car) => {

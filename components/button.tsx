@@ -1,10 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Car from "../core/car";
-
+import { chakra } from "@chakra-ui/react";
+import React from "react";
 interface ButtonProps {
   color?: "green" | "blue" | "gray" | "red";
-  className?: string;
   children?: any;
   onClick?: () => void;
 }
@@ -12,17 +9,24 @@ interface ButtonProps {
 const Button = (props: ButtonProps) => {
   const color = props.color ?? "blue";
   return (
-    <button
+    <chakra.button
       onClick={props.onClick}
-      className={`
-        bg-${color}-600
-        text-white rounded-md px-5 py-2 ${props.className}
-        hover:bg-${color}-800
-        active:bg-${color}-600
-        `}
+      bgColor={`${color}.600`}
+      textColor="white"
+      rounded="md"
+      paddingX="5"
+      paddingY="2"
+      margin="1"
+      _hover={{
+        background: `${color}.900`,
+      }}
+      _active={{
+        background: `${color}.700`,
+      }}
     >
       {props.children}
-    </button>
+    </chakra.button>
   );
 };
+
 export default Button;

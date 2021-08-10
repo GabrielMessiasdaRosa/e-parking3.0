@@ -18,7 +18,7 @@ export default class CarCollection implements CarRepository {
       return new Car(carData.name, carData.color, carData.plate, snapshot.id);
     },
   };
-
+  
   async saveCar(car: Car): Promise<Car> {
     if (car?.id) {
       await this.privateCarCollection().doc(car.id).set(car);

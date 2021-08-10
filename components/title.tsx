@@ -1,11 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+import { chakra, Flex } from "@chakra-ui/react";
 
 const Title = (props) => {
   return (
-    <div className={` flex flex-col justify-center`}>
-      <h1 className={`p-5 text-3 text-3xl`}>{props.children}</h1>
-    </div>
+    <Flex display="col" justify="center">
+      <chakra.h1 padding="5" fontSize="3xl" color="white" fontWeight="thin">
+        {props.children}
+      </chakra.h1>
+    </Flex>
   );
 };
 export default Title;

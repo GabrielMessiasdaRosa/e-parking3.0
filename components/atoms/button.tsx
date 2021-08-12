@@ -28,5 +28,5 @@ const Button = (props: ButtonProps) => {
     </chakra.button>
   );
 };
-
+// card, label, input button, table, 
 export default Button;

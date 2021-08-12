@@ -1,9 +1,9 @@
 import { Flex } from "@chakra-ui/react";
 import React from "react";
-import Car from "../core/car";
-import useCarProps from "../hooks/use-car-props";
-import Button from "./button";
-import Input from "./input";
+import Car from "../../core/car";
+import useCarProps from "../../hooks/use-car-props";
+import Button from "../atoms/button";
+import Input from "../atoms/input";
 interface FormProps {
   car: Car;
   cancel?: () => void;

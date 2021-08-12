@@ -1,7 +1,7 @@
 import { chakra } from "@chakra-ui/react";
 import React, { Component } from "react";
-import Car from "../core/car";
-import { editIcon, trashIcon } from "./icons";
+import Car from "../../core/car";
+import { editIcon, trashIcon } from "../particle/icons";
 
 interface TableProps {
   cars?: Car[];
@@ -72,9 +72,9 @@ const Table = (props: TableProps) => {
       return (
         <chakra.tr
           key={car.id}
-          className={`${
-            index % 2 === 0 ? "bg-blue-200" : "bg-blue-100"
-          } text-gray-800 font-light`}
+          bgColor={index % 2 === 0 ? "blue.200": "blue.100"}
+          textColor="gray.800"
+          fontWeight="light"
         >
           <chakra.td textAlign="left" padding="4">
             {car.id}

@@ -1,6 +1,6 @@
 import { chakra, Flex } from "@chakra-ui/react";
 import React from "react";
-import Car from "../core/car";
+import Car from "../../core/car";
 interface selectProps {
   text: string;
   cars?: Car[];

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Title from "./title";
+import Title from "../atoms/title";
 import { Flex } from "@chakra-ui/react";
 
 interface LayoutProps {

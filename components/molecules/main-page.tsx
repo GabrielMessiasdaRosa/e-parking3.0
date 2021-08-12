@@ -1,10 +1,10 @@
 import React from "react";
-import Button from "./button";
+import Button from "../atoms/button";
 import Form from "./form";
 import Layout from "./layout";
-import Table from "./table";
-import useCars from "../hooks/use-cars";
-import Select from "./select";
+import Table from "../atoms/table";
+import useCars from "../../hooks/use-cars";
+import Select from "../atoms/select";
 import { Flex } from "@chakra-ui/react";
 export default function MainPage() {
   const {
